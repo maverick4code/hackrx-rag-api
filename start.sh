@@ -1,12 +1,9 @@
     #!/usr/bin/env bash
-    # This script tells Render to activate the virtual environment and run the app.
+    # This script runs the uvicorn server using the explicit path to the venv's Python interpreter.
 
     # Exit immediately if a command exits with a non-zero status.
     set -e
 
-    # Activate the virtual environment
-    source .venv/bin/activate
-
-    # Run the uvicorn command
-    uvicorn main:app --host 0.0.0.0 --port $PORT
+    # Use the Python interpreter from the virtual environment to run uvicorn
+    ./.venv/Scripts/python -m uvicorn main:app --host 0.0.0.0 --port $PORT
     
